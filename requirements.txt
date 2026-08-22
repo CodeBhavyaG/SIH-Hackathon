@@ -2,3 +2,5 @@ langgraph
 langchain
 dotenv
 pydantic
+langchain-groq
+langchain-community

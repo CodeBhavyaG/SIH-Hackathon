@@ -1,0 +1,493 @@
+[
+  {
+    "case_id": "research_001",
+    "category": "SIMPLE",
+    "overall_score": 10.0,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 2.0,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 3,
+      "agent_distribution": {
+        "ResearchAgent_2": 1,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 1
+      },
+      "load_delta": 0,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 58.7
+    },
+    "reason": "Supervisor achieved an overall rating of 10.0/10 by successfully decomposing the SIMPLE research brief into 3 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 1, ResearchAgent_3: 1, ResearchAgent_1: 1), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 3 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 0 <= 1).",
+      "Decomposed brief into 3 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 58.7 words/task with domain specifics).",
+      "Strong operational framing: all tasks use clear directive verbs and bounded scopes.",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (9/9 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 1.77,
+    "input_query": "What are the major causes of urban air pollution?",
+    "supervisor_output": {
+      "research_brief": "Provide a comprehensive, evidence-based foundation detailing primary emission sources, atmospheric processes, weather patterns, and public health ramifications of urban air pollution to enable targeted municipal policy design and health interventions. The strategic mission is to equip city planners and health authorities with unambiguous, source-attributed data, distinguishing direct combustion emissions from secondary photochemical aerosols and identifying critical exposure hotspots. Scope includes: 1) Primary anthropogenic and natural emission sources (vehicular, industrial, construction, biomass); 2) Meteorological, weather, and geographical dispersion dynamics; 3) Acute and chronic public health impacts across vulnerable demographics; 4) Regulatory frameworks and municipal mitigation interventions. Boundary exclusions: Unverified citizen sensor readings and policy recommendations beyond empirical evidence.",
+      "tasks": [
+        {
+          "task_description": "Investigate primary anthropogenic and natural emission sources contributing to urban air pollution. Analyze positive matrix factorization (PMF) and chemical mass balance studies to establish proportional contributions of vehicular transport (diesel/gasoline tailpipe, brake/tire wear), industrial manufacturing, construction earthworks, biomass burning, and secondary aerosol formation. Address edge cases such as episodic festive/agricultural biomass surges that distort annual mean models.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Examine meteorological, weather, and geographical dispersion dynamics affecting ambient pollutant concentrations. Analyze planetary boundary layer (PBL) height dynamics, thermal inversions, wind patterns, humidity, and urban street canyon geography. Specifically address how winter stagnant conditions exacerbate pollution traps and quantify the role of regional transboundary airflow versus localized emissions. Include analysis of street canyon vortices creating micro-scale hotspots.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Gather epidemiological evidence on acute and chronic public health impacts of urban air pollution across vulnerable demographics (pediatric, geriatric, outdoor workers). Differentiate toxicological mechanisms of ultra-fine particles (PM0.1) vs. coarse dust (PM10). Review regulatory frameworks, emissions standards, and the empirical effectiveness of municipal mitigation interventions (low-emission zones, vehicle restrictions, fuel switching, dust suppression). Exclude unverified citizen sensor data and unsupported policy recommendations.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  },
+  {
+    "case_id": "research_002",
+    "category": "COMPARATIVE",
+    "overall_score": 10.0,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 2.0,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 3,
+      "agent_distribution": {
+        "ResearchAgent_2": 1,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 1
+      },
+      "load_delta": 0,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 56.7
+    },
+    "reason": "Supervisor achieved an overall rating of 10.0/10 by successfully decomposing the COMPARATIVE research brief into 3 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 1, ResearchAgent_3: 1, ResearchAgent_1: 1), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 3 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 0 <= 1).",
+      "Decomposed brief into 3 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 56.7 words/task with domain specifics).",
+      "Strong operational framing: all tasks use clear directive verbs and bounded scopes.",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (8/8 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 1.41,
+    "input_query": "Compare electric vehicles and hybrid vehicles in terms of cost, environmental impact, maintenance, and long-term adoption.",
+    "supervisor_output": {
+      "research_brief": "Deliver a rigorous, evidence-based comparative analysis of battery electric vehicles (BEVs) and hybrid electric vehicles (HEVs/PHEVs) across economic, environmental, and operational dimensions without assuming single-country subsidies or uniform electricity grids. The strategic target is to provide policy analysts and automotive planners with nuanced, lifecycle-grounded evaluation metrics that distinguish upfront purchase economics from long-term operating, maintenance, and environmental costs.",
+      "tasks": [
+        {
+          "task_description": "Analyze Total Cost of Ownership (TCO) and Lifetime Economics: Compare purchase price premiums, financing, operational fuel/electricity expenses, insurance rates, and projected depreciation/resale values across key vehicle classes. Differentiate high-mileage commercial fleet economics from low-mileage personal ownership to establish clear financial parity thresholds. Address edge cases regarding battery mineral supply chain volatility and its impact on 5-8 year resale valuations.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Assess Lifecycle Environmental & Carbon Footprint: Evaluate cradle-to-grave greenhouse gas emissions, including battery mineral extraction, manufacturing burdens, and sensitivity to regional electricity generation mixes. Quantify the exact mileage breakeven point where BEVs reach carbon parity with HEVs under varying grid carbon intensities (e.g., coal-heavy >700g CO2/kWh vs. clean renewable <150g CO2/kWh).",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Evaluate Operational Dimensions: Maintenance, Reliability, and Infrastructure: Analyze scheduled servicing frequency, mechanical failure rates, regenerative braking wear, and long-term battery degradation profiles (including out-of-warranty replacement costs). Examine charging infrastructure accessibility, grid capacity constraints, range anxiety, and adoption dynamics across urban/suburban/rural segments. Specifically address extreme cold weather range penalties (-10\u00b0C to -20\u00b0C) and their impact on operating economics and charging schedules.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  },
+  {
+    "case_id": "research_003",
+    "category": "MULTI_DIMENSIONAL",
+    "overall_score": 10.0,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 2.0,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 5,
+      "agent_distribution": {
+        "ResearchAgent_2": 2,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 2
+      },
+      "load_delta": 1,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 39.0
+    },
+    "reason": "Supervisor achieved an overall rating of 10.0/10 by successfully decomposing the MULTI_DIMENSIONAL research brief into 5 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 2, ResearchAgent_3: 1, ResearchAgent_1: 2), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 5 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 1 <= 1).",
+      "Decomposed brief into 5 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 39.0 words/task with domain specifics).",
+      "Strong operational framing: all tasks use clear directive verbs and bounded scopes.",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (9/9 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 1.66,
+    "input_query": "How has remote work affected employee productivity, company costs, employee satisfaction, and urban economies?",
+    "supervisor_output": {
+      "research_brief": "Provide an empirical multi-dimensional assessment of post-2020 remote and hybrid work models, separating measured productivity and cost impacts from worker wellbeing and broader municipal economic shifts. The strategic goal is to synthesize cross-disciplinary labor, organizational, and urban economic literature to inform enterprise human capital policies and municipal commercial revitalization strategies. Scope includes: Objective and subjective employee productivity metrics across knowledge-work sectors; Corporate real estate, IT overhead, and operating expenditure shifts; Worker job satisfaction, work-life balance, flexibility, and burnout dynamics; Urban economic spillovers including transit ridership, local business vitality, and commercial property valuations; Sectoral and geographic variation in hybrid adoption and return-to-office policies. Boundary exclusions: Non-knowledge work occupations where physical presence is mandatory. Speculative commercial real estate forecasts unsupported by empirical transaction data.",
+      "tasks": [
+        {
+          "task_description": "Synthesize empirical studies and corporate performance metrics examining individual output, collaborative efficiency, and code/document production across knowledge-work domains. Distinguish objective telemetry and output quality from self-reported productivity measures. Address edge cases such as self-report vs. objective telemetry discrepancies and asynchronous timezone coordination friction.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Investigate changes in commercial real estate leasing, facility maintenance, IT security infrastructure, and remote employee onboarding/retention expenses. Quantify how fixed facility cost reductions balance against expanded cybersecurity and distributed tooling expenditures. Analyze hidden home-office cost shifting and ergonomic attrition risks.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Analyze survey and longitudinal evidence regarding employee autonomy, work-life balance, psychological burnout, career progression disparities, and team cohesion. Evaluate how schedule flexibility impacts retention and job satisfaction across demographic cohorts, specifically addressing proximity bias and promotion rate disparities in hybrid environments.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Evaluate the economic impact of altered commuting patterns on downtown service businesses, public transportation fare revenues, and city tax receipts. Document commercial real estate valuation adjustments and suburban retail economic decentralization based on empirical transaction data.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Examine how hybrid work policies differ across finance, tech, healthcare administration, and legal sectors, including geographic pay-adjustment practices and executive return-to-office mandates. Synthesize findings into dimensional comparison tables and policy recommendations for hybrid workplace governance.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  },
+  {
+    "case_id": "research_004",
+    "category": "AMBIGUOUS",
+    "overall_score": 10.0,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 2.0,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 3,
+      "agent_distribution": {
+        "ResearchAgent_2": 1,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 1
+      },
+      "load_delta": 0,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 59.0
+    },
+    "reason": "Supervisor achieved an overall rating of 10.0/10 by successfully decomposing the AMBIGUOUS research brief into 3 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 1, ResearchAgent_3: 1, ResearchAgent_1: 1), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 3 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 0 <= 1).",
+      "Decomposed brief into 3 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 59.0 words/task with domain specifics).",
+      "Strong operational framing: all tasks use clear directive verbs and bounded scopes.",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (7/8 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 1.48,
+    "input_query": "What is the best AI policy?",
+    "supervisor_output": {
+      "research_brief": "Objective: Scope the principal objectives, regulatory approaches, and risk domains in AI policy, establishing the core trade-offs and empirical evidence between safety, innovation, human rights, and market competition. The strategic aim is to deliver a rigorous international comparative analysis clarifying how distinct governance models address systemic frontier risks, copyright, data privacy, and technological sovereignty. Scope includes comparative international AI governance models, safety standards, policy trade-offs, and auditing mechanisms. Boundary exclusions: Speculative scenarios and declaring a single optimal policy. Edge cases include open-source bypass, adversarial jailbreaks, jurisdictional arbitrage, and regulatory capture.",
+      "tasks": [
+        {
+          "task_description": "Analyze comparative international AI governance models and legislative frameworks. Focus on mapping competing regulatory goals (safety, innovation, rights, competitiveness) across key jurisdictions (e.g., EU, US, UK, China). Evaluate how different definitions of 'best policy' conflict over varying time horizons and how policymakers reconcile safety risk thresholds with economic competitiveness. Include analysis of administrative infrastructure for pre-deployment audits and licensing.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Investigate risk domains and technical standards in AI policy. Review frontier model evaluation benchmarks, algorithmic bias audits, copyright/IP rules, and critical infrastructure constraints. Assess the technical feasibility of verifying model safety and alignment prior to commercial deployment. Specifically address edge cases such as open-source model weight proliferation, regulatory bypass via fine-tuning, and the limitations of static compliance checklists against adaptive adversarial jailbreaks.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Examine core policy trade-offs, market dynamics, and enforcement challenges. Analyze the tension between consumer protection, innovation incentives, and sovereign competitiveness. Evaluate auditing mechanisms, transparency mandates, and liability regimes. Address edge cases including cross-border jurisdictional arbitrage (relocation of compute/data to lightly regulated areas) and market concentration/regulatory capture risks where burdensome compliance costs entrench hyperscalers and hinder startups.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  },
+  {
+    "case_id": "research_005",
+    "category": "CONFLICTING_EVIDENCE",
+    "overall_score": 10.0,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 2.0,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 3,
+      "agent_distribution": {
+        "ResearchAgent_2": 1,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 1
+      },
+      "load_delta": 0,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 53.7
+    },
+    "reason": "Supervisor achieved an overall rating of 10.0/10 by successfully decomposing the CONFLICTING_EVIDENCE research brief into 3 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 1, ResearchAgent_3: 1, ResearchAgent_1: 1), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 3 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 0 <= 1).",
+      "Decomposed brief into 3 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 53.7 words/task with domain specifics).",
+      "Strong operational framing: all tasks use clear directive verbs and bounded scopes.",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (7/7 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 13.47,
+    "input_query": "Does social media use harm adolescent mental health?",
+    "supervisor_output": {
+      "research_brief": "Deliver a rigorous, balanced evidence synthesis distinguishing correlation from causation in social media mental health research, evaluating platform mechanisms, demographic moderators, and methodological limitations.",
+      "tasks": [
+        {
+          "task_description": "Synthesize longitudinal, quasi-experimental, and large-scale observational studies to distinguish correlation from causation regarding social media use and mental health outcomes (depression, anxiety, distress). Specifically, evaluate experimental digital reduction trials and instrument-variable econometric studies to determine if social media causes adverse outcomes or if bidirectional vulnerability exists. Address the edge case of reverse causality where pre-existing symptoms drive maladaptive usage.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Analyze how specific platform design mechanisms and engagement modes mediate psychological impact. Differentiate between passive scrolling (doomscrolling, algorithmic feeds, social comparison cues) and active engagement (direct messaging, niche peer-support). Evaluate how features like likes, shares, and notification triggers create feedback loops. Contrast benign peer communication with toxic algorithmic amplification.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Investigate demographic moderators and vulnerability factors, focusing on age cohorts (specifically early adolescence 10-14 vs. older cohorts), gender differences (e.g., female vulnerability to body image comparison), and baseline psychological vulnerability. Additionally, examine methodological limitations including self-reported screen time inaccuracies vs. telemetry data, small effect sizes, publication bias, and unmeasured confounders in current literature.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  },
+  {
+    "case_id": "research_006",
+    "category": "INSUFFICIENT_INFORMATION",
+    "overall_score": 9.8,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 1.75,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 3,
+      "agent_distribution": {
+        "ResearchAgent_2": 1,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 1
+      },
+      "load_delta": 0,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 56.7
+    },
+    "reason": "Supervisor achieved an overall rating of 9.8/10 by successfully decomposing the INSUFFICIENT_INFORMATION research brief into 3 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 1, ResearchAgent_3: 1, ResearchAgent_1: 1), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 3 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 0 <= 1).",
+      "Decomposed brief into 3 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 56.7 words/task with domain specifics).",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (7/7 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 18.91,
+    "input_query": "Investigate whether our intervention worked.",
+    "supervisor_output": {
+      "research_brief": "Construct an evidence-based evaluation scoping mission to determine intervention effectiveness, identifying required data access, counterfactual comparison groups, and quantitative/qualitative metrics. The strategic mission is to establish a rigorous econometric and causal inference framework that protects decision-makers from false positive claims and identifies whether observed outcome changes can be definitively attributed to the intervention. Scope includes: Theory of change and causal chain mapping; Outcome and success criteria definition across primary and secondary KPIs; Experimental and quasi-experimental evaluation methodologies; Baseline and longitudinal data requirements, sample power calculations, and counterfactual design. Boundary exclusions: Estimating intervention outcomes prior to receiving program specifications, baseline data, or target populations. Assuming causal success without empirical control evidence. Delegation Suggestions: 1. Intervention Architecture & Theory of Change: Define operational mechanisms, target beneficiaries, rollout timeline, hypothesized causal pathway, implementation fidelity bottlenecks, and unintended behavioral side-effects. 2. Outcome Metrics & Success Criteria: Establish quantifiable primary/secondary KPIs, distinguish outputs from outcomes, define baseline data requirements and minimum statistical power thresholds. 3. Evaluation Methodology & Counterfactual Design: Specify robust methodologies (RCT, DiD, Synthetic Control), criteria for valid unexposed control groups, strategies to eliminate selection bias and historical confounding. Edge Cases: Hawthorne effects, Macroeconomic confounders, Self-selection/Attrition bias, Sleeper effects. Expected Deliverable: Evidence-gathering protocol and evaluation design framework.",
+      "tasks": [
+        {
+          "task_description": "Develop the Intervention Architecture and Theory of Change framework. This includes defining the operational mechanisms, target beneficiaries, and rollout timeline. Map the hypothesized causal pathway from inputs to long-term impacts. Identify potential implementation fidelity bottlenecks and unintended behavioral side-effects. Address how to account for 'Sleeper Effects' where benefits may only materialize after a long incubation period.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Define Outcome Metrics and Success Criteria. Establish quantifiable primary and secondary Key Performance Indicators (KPIs), clearly distinguishing between direct outputs, intermediate outcomes, and long-term socio-economic or organizational impacts. Specify baseline data requirements and calculate minimum statistical power thresholds needed to detect significant effects. Address how to mitigate 'Hawthorne & Observer Reactivity Effects' in metric collection.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Design the Evaluation Methodology and Counterfactual Strategy. Specify robust evaluation methodologies such as Randomized Controlled Trials (RCT), Difference-in-Differences (DiD), or Synthetic Control methods. Define criteria for identifying a valid unexposed control group. Formulate strategies to eliminate selection bias, attrition bias (common in voluntary programs), and historical confounding events (e.g., macroeconomic shifts). Ensure the design protects against false positive claims.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  },
+  {
+    "case_id": "research_007",
+    "category": "COMPLEX",
+    "overall_score": 9.8,
+    "dimensions": {
+      "load_balancing": 2.5,
+      "context_clustering": 2.5,
+      "actionability": 1.75,
+      "schema_constraints": 1.5,
+      "scope_coverage": 1.5
+    },
+    "metrics": {
+      "task_count": 5,
+      "agent_distribution": {
+        "ResearchAgent_2": 2,
+        "ResearchAgent_3": 1,
+        "ResearchAgent_1": 2
+      },
+      "load_delta": 1,
+      "all_agents_utilized": true,
+      "avg_words_per_task": 45.0
+    },
+    "reason": "Supervisor achieved an overall rating of 9.8/10 by successfully decomposing the COMPLEX research brief into 5 actionable subtopics with strictly balanced delegation across 3 research agents (ResearchAgent_2: 2, ResearchAgent_3: 1, ResearchAgent_1: 2), adhering to strict Pydantic output schemas and operational constraints (pending status, null results/summary).",
+    "strengths": [
+      "All 5 tasks assigned to valid subordinate agents.",
+      "Full agent utilization: all 3 research agents actively assigned tasks.",
+      "Strict load balance achieved (max task load delta = 1 <= 1).",
+      "Decomposed brief into 5 well-sized subtopics.",
+      "High subtopic distinctiveness: zero redundant or overlapping research objectives.",
+      "Exemplary instruction depth (average 45.0 words/task with domain specifics).",
+      "Operational constraint met: all tasks initialized to 'pending'.",
+      "Operational constraint met: all task results initialized to null.",
+      "Operational constraint met: final_summary initialized to null.",
+      "Extensive coverage of brief's delegation suggestions & edge cases (9/9 focus areas referenced)."
+    ],
+    "weaknesses": [],
+    "improvements": [
+      "Maintain high prompt alignment and strict load balancing across all complexity categories."
+    ],
+    "latency_seconds": 17.11,
+    "input_query": "What strategy should India pursue to reduce plastic pollution in the Ganges basin while protecting informal waste workers and small businesses?",
+    "supervisor_output": {
+      "research_brief": "Develop a five-year strategic research framework for the Ganges river basin that balances upstream and downstream plastic pollution mitigation with informal waste sector integration and MSME economic resilience. The framework must address riverine leakage hotspots, informal worker livelihoods, MSME compliance costs, and regulatory implementation (EPR, bans, financing), while accounting for edge cases like monsoonal flushes, informal sector displacement, inter-state regulatory arbitrage, and pseudo-biodegradable contamination.",
+      "tasks": [
+        {
+          "task_description": "Analyze plastic waste generation, collection deficits, and riverine leakage hotspots in the Ganges basin. Map point and non-point sources in riparian cities, characterize polymer types and macro/microplastic flows, and quantify seasonal hydrologic transport dynamics (including monsoonal flushes) and open dumpsite erosion. Identify infrastructure gaps contributing to leakage.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Assess socio-economic conditions, fair compensation, and formalization models for informal waste pickers and aggregators. Evaluate economic contributions, occupational health/safety, and social welfare integration. Develop integration models that prevent displacement (avoiding leakage relocation) while improving collection efficiency and ensuring fair price discovery.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Investigate compliance burdens, material substitution alternatives, and supply chain impacts on Micro, Small, and Medium Enterprises (MSMEs). Analyze affordable biopolymer/alternative material availability, technological upgrade financing, capital expenditure barriers, and transition support for small plastic manufacturers. Address issues of pseudo-biodegradable plastic contamination and supply chain substitution feasibility.",
+          "assigned_agent": "ResearchAgent_3",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Evaluate regulatory implementation of Extended Producer Responsibility (EPR), single-use plastic bans, and municipal waste financing. Assess enforcement efficacy of India's Plastic Waste Management Rules, state pollution control board coordination, EPR digital registry compliance, and municipal-private partnership models. Address inter-state regulatory arbitrage and border leakage issues.",
+          "assigned_agent": "ResearchAgent_1",
+          "status": "pending",
+          "result": null
+        },
+        {
+          "task_description": "Formulate a phased five-year implementation roadmap aligning municipal infrastructure with producer obligations. Develop stakeholder impact matrices, infrastructure financing blueprints, and state-level policy coordination guidelines. Ensure the roadmap integrates findings from leakage analysis, informal sector integration, MSME adaptation, and regulatory enforcement to create a cohesive strategic framework.",
+          "assigned_agent": "ResearchAgent_2",
+          "status": "pending",
+          "result": null
+        }
+      ],
+      "final_summary": null
+    }
+  }
+]
