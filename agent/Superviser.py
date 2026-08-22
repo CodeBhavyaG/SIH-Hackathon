@@ -1,7 +1,8 @@
 import os
 import sys
 from pathlib import Path
-
+from langchain.messages import HumanMessage
+import json
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain.messages import SystemMessage
@@ -16,29 +17,94 @@ from state import SupervisorState
 load_dotenv()
 api_key = os.getenv("api_key")
 
-llm = ChatGroq(
-    model_name="qwen/qwen3.6-27b",
-    api_key=api_key,
-    temperature=0.1,
-    # max_tokens=6000,
-    reasoning_effort="none",  # "default"
-    # CRITICAL: ReAct/Tool agents require reasoning to be parsed or hidden,
-    # otherwise raw <think> tags will break the parser layout.
-    reasoning_format="parsed",
-)
+def get_llm(api_key: str | None = None, model_name: str = "qwen/qwen3.6-27b", temperature: float = 0.1) -> ChatGroq:
+    """Initialize and return the Groq Chat model."""
+    key = api_key or os.getenv("api_key")
+    return ChatGroq(
+        model_name=model_name,
+        api_key=key,
+        temperature=temperature,
+        reasoning_effort="none",
+        reasoning_format="parsed",
+    )
 
+def get_system_prompt() -> str:
+    """Load the Supervisor system prompt from prompt/Superviser.md."""
+    prompt_path = project_root / "prompt" / "Superviser.md"
+    return prompt_path.read_text(encoding="utf-8")
 
-prompt_path = project_root / "prompt" / "Superviser.md"
-system_prompt = prompt_path.read_text(encoding="utf-8")
+def create_supervisor_agent(llm_model=None):
+    """Create a structured Supervisor Agent instance."""
+    if llm_model is None:
+        llm_model = get_llm()
+    system_prompt = get_system_prompt()
+    return create_agent(
+        model=llm_model,
+        tools=[],
+        system_prompt=SystemMessage(system_prompt),
+        response_format=SupervisorState,
+    )
 
-message = []
+# Module-level agent and llm for backward compatibility
+llm = get_llm()
+agent = create_supervisor_agent(llm)
 
-print("System Prompt:")
-print(system_prompt)
+def run_supervisor(brief: str, supervisor_agent=None) -> SupervisorState:
+    """
+    Invoke the supervisor agent on a given research brief and return SupervisorState.
+    """
+    if supervisor_agent is None:
+        supervisor_agent = agent
+    message = [HumanMessage(brief)]
+    result = supervisor_agent.invoke({"messages": message})
+    return result["structured_response"]
 
-agent = create_agent(
-    model=llm,
-    tools=[],
-    system_prompt=SystemMessage(system_prompt),
-    response_format=SupervisorState,
-)
+if __name__ == "__main__":
+    message = [
+        HumanMessage("""# Research Brief
+
+## Research Question
+What are the major causes of urban air pollution?
+
+## Objective
+Provide a comprehensive, evidence-based foundation detailing primary emission sources, atmospheric processes, weather patterns, and public health ramifications of urban air pollution to enable targeted municipal policy design and health interventions.
+
+The strategic mission is to equip city planners and health authorities with unambiguous, source-attributed data, distinguishing direct combustion emissions from secondary photochemical aerosols and identifying critical exposure hotspots.
+
+## Scope
+This brief encompasses the following core analytical dimensions:
+- Primary anthropogenic and natural emission sources (vehicular tailpipe and non-exhaust dust, industrial manufacturing, construction earthworks, biomass burning)
+- Meteorological, weather, and geographical dispersion dynamics across seasonal boundary layer shifts
+- Acute and chronic public health impacts across vulnerable demographics (pediatric, geriatric, outdoor workers)
+- Regulatory frameworks, emissions standards, and municipal mitigation interventions
+
+Boundary exclusions: Unverified citizen sensor readings lacking reference-grade calibration. Policy recommendations beyond what empirical source apportionment evidence supports.
+
+## Delegation Suggestions
+- Primary Emission Sources & Source Apportionment: Investigate which emission sources contribute most significantly to ambient urban particulate and gaseous concentrations. Researchers must analyze positive matrix factorization (PMF) and chemical mass balance studies to establish the proportional contributions of vehicular transport (diesel vs. gasoline tailpipe emissions, brake and tire wear), point-source industrial manufacturing, construction earthworks, municipal solid waste burning, and secondary sulfate/nitrate aerosol formation across seasonal baselines.
+- Meteorological & Weather Dynamics: Examine how planetary boundary layer (PBL) height dynamics, thermal temperature inversions, wind velocity patterns, humidity, and local urban street canyon geography affect ambient pollutant concentrations and localized exposure peaks. Researchers must document why winter stagnant conditions exacerbate ground-level pollution traps and quantify the role of regional transboundary airflow versus localized emissions.
+- Public Health Impacts & Population Vulnerability: Gather epidemiological cohort evidence, hospital emergency admission datasets, and WHO health risk metrics on acute and chronic respiratory, cardiovascular, and neurological outcomes across vulnerable demographics (pediatric, geriatric, outdoor labor forces). Differentiate the toxicological damage mechanisms of ultra-fine particles (PM0.1) from coarse dust (PM10) and distinguish peak episodic exposure risks from chronic long-term background burdens.
+- Regulatory Policies & Mitigation Interventions: Review the documented empirical effectiveness, compliance enforcement mechanisms, and economic costs of municipal control measures. Evaluate comparative case studies of low-emission zones, heavy-duty vehicle restrictions, industrial fuel switching (coal/furnace oil to piped natural gas), and construction dust suppression mandates to identify scalable, cost-effective interventions.
+
+## Edge Cases and Anomalies
+- Thermal Inversion & Stagnant Air Traps: Severe winter inversion layers can suppress the planetary boundary layer height below 100 meters, amplifying ground-level pollutant concentrations by 300–500% without any change in underlying emission rates, leading standard models to falsely infer sudden industrial surges.
+- Episodic Festive & Agricultural Biomass Surges: Short-duration, extreme seasonal spikes (e.g., post-harvest crop residue burning or festival fireworks) temporarily distort annual mean source apportionment models, requiring dynamic temporal filtering to avoid mischaracterizing baseline urban emissions.
+- Street Canyon Vortices & Micro-scale Hotspots: Narrow high-rise urban street canyons generate micro-turbulent recirculating vortices that trap vehicular emissions at pedestrian height, causing localized toxic concentrations up to 10 times higher than rooftop reference monitors report.
+- Low-Cost Sensor Humidity Anomalies: Low-cost optical particle counters experience severe hygroscopic particle growth during high relative humidity (>80%), causing uncalibrated sensors to overreport PM2.5 concentrations by up to 200%.
+
+## Expected Deliverable
+A comprehensive, multi-section research report detailing source attribution estimates, meteorological exposure determinants, health impact assessments, policy effectiveness benchmarks, and explicit notes on empirical uncertainty.
+
+The deliverable must provide structured comparative tables, seasonal variation matrices, and actionable synthesized takeaways formatted specifically for supervisor review.
+
+## Self-Evaluation
+Overall score: 9.4/10.
+The brief provides the Supervisor with 4 detailed delegation directives, explicit scope boundaries, edge case warnings, and clear evidence expectations. Specific depth of evidence retrieval and tool allocation must be calibrated by the Supervisor based on available researcher capacity.
+Strengths: Provides comprehensive, domain-tailored investigative guidance for each delegation topic.; Identifies critical edge cases and potential anomalous conditions to prevent downstream research bottlenecks.; Clearly bounds analytical scope and separates planning from research execution.; Explicitly highlights evidence standards, methodological rigor, and conflicting findings.
+Weaknesses: Specific depth of evidence retrieval and tool allocation must be calibrated by the Supervisor based on available researcher capacity.
+Improvements: Have the Supervisor prioritize critical path topics based on time and search budget.""")
+    ]
+
+    result = agent.invoke({"messages": message})
+    all_results = [result["structured_response"].model_dump()]
+    print(json.dumps(all_results, indent=2))
