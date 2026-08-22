@@ -30,7 +30,7 @@ pip install -r requirements.txt
 # Create .env file if it doesn't exist
 if [ ! -f .env ]; then
     echo "📝 Creating .env file..."
-    cp .env.example .env
+    cp configs/.env.example .env
     echo "⚠️  Remember to edit .env with your API keys!"
 fi
 
@@ -40,4 +40,4 @@ echo "To activate the virtual environment, run:"
 echo "  source venv/bin/activate"
 echo ""
 echo "To start the server:"
-echo "  python src/main.py"
+echo "  python -m sih_hackathon.main"

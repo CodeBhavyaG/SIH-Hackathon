@@ -8,6 +8,8 @@ pydantic>=2.5.0
 
 # Environment variable management
 python-dotenv>=1.0.0
+reportlab>=4.0.0
+groq>=0.30.0
 
 # LLM providers (choose based on your needs)
 langchain-openai>=0.2.0

@@ -1,7 +1,7 @@
 [project]
 name = "sih-hackathon"
 version = "0.1.0"
-description = "Deep research summarizer prototype"
+description = "Structured Research Brief Agent prototype"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -9,4 +9,16 @@ dependencies = [
     "langchain>=0.3.0",
     "langgraph>=0.2.0",
     "python-dotenv>=1.0.0",
+    "reportlab>=4.0.0",
+    "groq>=0.30.0",
 ]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
